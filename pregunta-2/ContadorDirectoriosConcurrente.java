@@ -16,29 +16,29 @@ public class ContadorDirectoriosConcurrente {
 
     // Método sincronizado para incrementar el resultado
     static synchronized void incrementResult() {
-        ConcurrentDirCount.result = ConcurrentDirCount.result + 1;
+        ContadorDirectoriosConcurrente.result = ContadorDirectoriosConcurrente.result + 1;
     }
 
     // Método estático para contar los archivos en un directorio
     static void count(String path) throws Exception {
         // Reiniciando el resultado
-        ConcurrentDirCount.result = 0;
+        ContadorDirectoriosConcurrente.result = 0;
 
         // Creando una nueva instancia de ConcurrentDirCount
-        ConcurrentDirCount c = new ConcurrentDirCount(path);
+        ContadorDirectoriosConcurrente contador = new ContadorDirectoriosConcurrente(path);
 
         // Calculando el número de archivos
-        c.compute();
+        contador.compute();
 
         // Cerrando el pool de hilos
-        ConcurrentDirCount.threadPool.shutdown();
+        ContadorDirectoriosConcurrente.threadPool.shutdown();
     }
 
     // Variable para almacenar la ruta del directorio
     String path;
 
-    // Constructor de la clase ConcurrentDirCount
-    ConcurrentDirCount(String path) {
+    // Constructor de la clase ContadorDirectoriosConcurrente
+    ContadorDirectoriosConcurrente(String path) {
         this.path = path;
     }
 
@@ -62,7 +62,7 @@ public class ContadorDirectoriosConcurrente {
 
                 // Creando la tarea para contar los archivos en el subdirectorio
                 Callable<Void> subDirTask = () -> {
-                    ConcurrentDirCount count = new ConcurrentDirCount(listDir[i_].getPath());
+                    ContadorDirectoriosConcurrente count = new ContadorDirectoriosConcurrente(listDir[i_].getPath());
                     count.compute();
 
                     return null;
@@ -73,26 +73,11 @@ public class ContadorDirectoriosConcurrente {
             }
             else {
                 // Si el archivo no es un directorio, se incrementa el resultado
-                ConcurrentDirCount.incrementResult();
+                ContadorDirectoriosConcurrente.incrementResult();
             }
         }
 
         // Invocando todas las tareas en el pool de hilos
-        ConcurrentDirCount.threadPool.invokeAll(tareas);
-    }
-}
-
-public static void main(String[] args) {
-    try {
-        // Crear una instancia de ContadorDirectoriosConcurrente con la ruta del directorio a contar
-        ContadorDirectoriosConcurrente contador = new ContadorDirectoriosConcurrente("ruta/del/directorio");
-
-        // Llamar al método count para contar los archivos en el directorio
-        ContadorDirectoriosConcurrente.count("ruta/del/directorio");
-
-        // Imprimir el resultado
-        System.out.println("Número de archivos: " + ContadorDirectoriosConcurrente.result);
-    } catch (Exception e) {
-        e.printStackTrace();
+        ContadorDirectoriosConcurrente.threadPool.invokeAll(tareas);
     }
 }
