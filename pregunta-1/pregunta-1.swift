@@ -250,3 +250,4 @@ let g = Grafo(listAdy: [(1,2), (2,8), (8,6), (2,3), (3,4), (4,5), (5,6), (7, 9)]
 print(BFS(in: g).buscar(D: 1, H: 8)) // 2
 print(DFS(in: g).buscar(D: 1, H: 8)) // 6
 print(DFS(in: g).buscar(D: 1, H: 9)) // -1
+print(BFS(in: g).buscar(D: 1, H: 9)) // -1
