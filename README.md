@@ -33,3 +33,53 @@ swiftc ./pregunta-1/pregunta-1.swift
 make run
 ```
 
+Esto compilará el programa y lo ejecutará. Preguntará por cual de los dos programas se desea ejecutar, y luego preguntará 
+cuál programa de la pregunta 2 quiere ejecutar.
+
+### Cuarta Pregunta (Python)
+
+1. Escribe en tu consola el siguiente comando
+
+```
+cd ./pregunta-4
+```
+
+2. Luego, escribe el siguiente comando
+
+```
+python main.py
+```
+
+Puede acceder también a las pruebas unitarias de la cuarta pregunta, para ello escriba en su consola el siguiente comando
+
+```
+python tests.py
+```
+
+Por último puede acceder al informe de cobertura de las pruebas unitarias, para ello abra en su navegador web el archivo index.html que se encuentra en la carpeta htmlcov
+
+```
+./htmlcov/index.html
+```
+
+Se anexan imagenes del informe
+
+![alt text](./pregunta-4/htmlcov/coverage.png)
+
+### Sexta Pregunta (Python)
+
+1. Escribe en tu consola el siguiente comando
+
+```
+cd ./pregunta-6
+```
+
+2. Luego, escribe el siguiente comando
+
+```
+python main.py
+```
+
+
+
+
