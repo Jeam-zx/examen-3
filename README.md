@@ -5,7 +5,7 @@
 ## Lenguaje y Herramientas Utilizados
 
 Para la primera pregunta fue utilizado el lenguaje de programación Swift, para la segunda pregunta fue utilizado el lenguaje de programación Java,
-y para la 4 y 6 pregunta fue utilizado el lenguaje de programación Python.
+y para la 4  pregunta fue utilizado el lenguaje de programación Python.
 
 ## Códigos fuentes
 
@@ -66,19 +66,6 @@ Se anexan imagenes del informe
 
 ![alt text](./pregunta-4/htmlcov/coverage.png)
 
-### Sexta Pregunta (Python)
-
-1. Escribe en tu consola el siguiente comando
-
-```
-cd ./pregunta-6
-```
-
-2. Luego, escribe el siguiente comando
-
-```
-python main.py
-```
 
 
 
